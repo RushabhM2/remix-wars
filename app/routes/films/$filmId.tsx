@@ -11,7 +11,7 @@ export let loader: LoaderFunction = async ( { params } ) => {
   }
 }
 
-export default function ResourceRoute() {
+export default function FilmIdRoute() {
   const { resource } = useParams();
   let film = useLoaderData();
 
