@@ -8,6 +8,7 @@ import { Planet } from '../../lib/planets';
 import { Species } from '../../lib/species';
 import { Vehicle } from '../../lib/vehicles'
 import { Starship } from '../../lib/starships'
+import { Button } from '@mantine/core';
 
 export let loader: LoaderFunction = async ( { params } ) => {
   if (params.resource) {
@@ -26,11 +27,11 @@ export default function ResourceRoute() {
   return (
     <div>
       {resourceData.results.map((data: Film | Person | Planet | Species | Vehicle | Starship) => (
-        <li>
-          <Link to={`${resource}`} key={data.url}>
+        <Link to={`${resource}`} key={data.url}>
+          <Button mt="xl">
             {isFilm(data) ? data.title : data.name}
-          </Link>
-        </li>
+          </Button>
+        </Link>
       ))}
     </div>
   );

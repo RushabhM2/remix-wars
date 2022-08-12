@@ -6,11 +6,5 @@ export const loader = () => {
 
 export default function IndexRoute() {
   return (<div></div>
-    // <h1>
-    //   Resources Page
-    //   <main>
-    //     <Outlet />
-    //   </main>
-    // </h1>
   );
 }
