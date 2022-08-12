@@ -24,10 +24,14 @@ export default function ResourceRoute() {
     return (item as Film).title !== undefined
   }
 
+  function getIdFromUrl (url: string) {
+    return url[url.length-2]
+  }
+
   return (
     <div>
       {resourceData.results.map((data: Film | Person | Planet | Species | Vehicle | Starship) => (
-        <Link to={`${resource}`} key={data.url}>
+        <Link to={`${resource}/${getIdFromUrl(data.url)}`} key={data.url}>
           <Button mt="xl">
             {isFilm(data) ? data.title : data.name}
           </Button>
