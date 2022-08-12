@@ -19,21 +19,19 @@ export default function ResourceRoute() {
   const { resource } = useParams();
   let resourceData = useLoaderData();
 
-  // function isFilm(item: Film | Person | Planet | Species | Vehicle | Starship): item is Film {
-  //   return (item as Film).title !== undefined
-  // }
+  function isFilm(item: Film | Person | Planet | Species | Vehicle | Starship): item is Film {
+    return (item as Film).title !== undefined
+  }
 
   return (
     <div>
-      {/* <p>{JSON.stringify(resourceData.results)}</p> */}
-      {resourceData.results.map((data: any) => {
+      {resourceData.results.map((data: Film | Person | Planet | Species | Vehicle | Starship) => (
         <li>
-          {data.url}
-          {/* <Link to={`${resource}`}>
-            {data.name}
-          </Link> */}
+          <Link to={`${resource}`} key={data.url}>
+            {isFilm(data) ? data.title : data.name}
+          </Link>
         </li>
-      })}
+      ))}
     </div>
   );
 }

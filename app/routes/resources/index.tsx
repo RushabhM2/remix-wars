@@ -1,4 +1,5 @@
 import { useOutletContext, Link } from "@remix-run/react";
+import { Button } from '@mantine/core';
 
 export default function ResourceIndexRoute() {
   const [resourcesArray] = useOutletContext() as any;
@@ -6,11 +7,11 @@ export default function ResourceIndexRoute() {
   return (
     <div>
       {resourcesArray.map((resource: string) => (
-        <li key={resource}>
-          <Link to={`${resource}`}>
+        <Link to={`${resource}`} key={resource}>
+          <Button mt="xl">
             {resource}
-          </Link>
-        </li>
+          </Button>
+        </Link>
       ))}
     </div>
   );
