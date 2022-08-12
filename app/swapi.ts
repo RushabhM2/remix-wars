@@ -2,7 +2,7 @@ export async function getResources() {
   return await fetch('https://swapi.dev/api/');
 }
 
-export async function getResource(resource: string, page?: string) {
+export async function getResource(resource: string, page?: number) {
   if (!page) {
     return await fetch(`https://swapi.dev/api/${resource}`);
   }

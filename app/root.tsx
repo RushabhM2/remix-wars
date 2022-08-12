@@ -1,6 +1,5 @@
 import { MantineProvider } from '@mantine/core';
 import { LiveReload, Outlet, Links } from "@remix-run/react";
-import { StylesPlaceholder } from '@mantine/remix';
 import { theme } from './theme';
 
 export default function App() {
@@ -13,8 +12,8 @@ export default function App() {
           <title>Remix Wars</title>
         </head>
         <body>
-            <Outlet />
-            <LiveReload />
+          <Outlet />
+          <LiveReload />
         </body>
       </html>
     </MantineProvider>
